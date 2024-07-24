@@ -20,6 +20,9 @@ public class User {
     private String city;
     private String status;
 
+    public User() {
+    }
+
     public User(String name, String email, String city, String status) {
         this.name = name;
         this.email = email;
