@@ -12,6 +12,7 @@ import com.myspringboot.springbootfirst.services.BookService;
 @SpringBootApplication
 public class SpringbootfirstApplication {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] applicationArguments) {
 		ConfigurableApplicationContext context = SpringApplication.run(SpringbootfirstApplication.class,
 				applicationArguments);
