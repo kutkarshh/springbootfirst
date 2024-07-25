@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.myspringboot.springbootfirst.helpers.FileUploadHelper;
 
@@ -16,6 +17,7 @@ public class FileUploadController {
     @Autowired
     private FileUploadHelper fileUploader;
 
+    @SuppressWarnings("null")
     @PostMapping("/upload-file")
     public ResponseEntity<String> uploadFile(@RequestParam("image") MultipartFile file) {
         if (file.isEmpty() || !file.getContentType().equals("image/jpeg")) {
@@ -25,7 +27,10 @@ public class FileUploadController {
         try {
             boolean uploadSuccess = fileUploader.getUploadImage(file);
             if (uploadSuccess) {
-                return ResponseEntity.ok().body("File uploaded successfully");
+                // return ResponseEntity.ok().body("File uploaded successfully");
+
+                return ResponseEntity.ok("File Uploaded at: " + ServletUriComponentsBuilder.fromCurrentContextPath()
+                        .path("/image/").path(file.getOriginalFilename()).toUriString());
             }
         } catch (Exception e) {
             e.printStackTrace();
