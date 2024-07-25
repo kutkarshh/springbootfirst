@@ -12,7 +12,7 @@ public interface BookRepository extends CrudRepository<Book, Integer> {
     public List<Book> findByTitle(String title);
 
     // Fetch Books by author
-    public List<Book> findByAuthor(String author);
+    // public List<Book> findByAuthor(String author);
 
     // Fetch all Books
     @Query("select b from Book b")

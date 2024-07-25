@@ -35,16 +35,26 @@ public class BookService {
 
     // Get Book by Id
     public Book getBookById(int id) {
-        Book book = bookRepository.findById(id).get();
+        Book book = null;
+        try {
+            book = bookRepository.findById(id).get();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
         return book;
     }
 
     // Update Book
     public Book updateBook(Book book, int id) {
-        Book updateBook = bookRepository.findById(id).get();
-        updateBook.setTitle(book.getTitle());
-        updateBook.setAuthor(book.getAuthor());
-        return bookRepository.save(updateBook);
+        try {
+            Book updateBook = bookRepository.findById(id).get();
+            updateBook.setTitle(book.getTitle());
+            updateBook.setAuthor(book.getAuthor());
+            return bookRepository.save(updateBook);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
     }
 
     // Delete Book

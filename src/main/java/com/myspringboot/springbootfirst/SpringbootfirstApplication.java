@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
-import com.myspringboot.springbootfirst.dao.UserRepository;
-import com.myspringboot.springbootfirst.entities.Book;
-import com.myspringboot.springbootfirst.entities.User;
+// import com.myspringboot.springbootfirst.dao.UserRepository;
+// import com.myspringboot.springbootfirst.entities.Book;
+// import com.myspringboot.springbootfirst.entities.User;
 import com.myspringboot.springbootfirst.services.BookService;
 
 @SpringBootApplication
@@ -18,7 +18,7 @@ public class SpringbootfirstApplication {
 
 		System.out.println("Application is running...");
 
-		UserRepository uRepo = context.getBean(UserRepository.class);
+		// UserRepository uRepo = context.getBean(UserRepository.class);
 		BookService bService = context.getBean(BookService.class);
 
 		// Syntax to save Single user
@@ -57,8 +57,8 @@ public class SpringbootfirstApplication {
 		// uRepo.deleteById(55L);
 
 		// Fetching all users
-		Iterable<User> resultUsers = uRepo.findAll();
-		resultUsers.forEach(user -> System.out.println(user));
+		// Iterable<User> resultUsers = uRepo.findAll();
+		// resultUsers.forEach(user -> System.out.println(user));
 
 		// List<User> userList = uRepo.findByStatus("active");
 
@@ -66,9 +66,11 @@ public class SpringbootfirstApplication {
 
 		// Book book = new Book(101, "My Book", "John Doe");
 
+		// System.out.println(bService.getAllBooks());
+
 		// Book resultBook = bService.saveBook(book);
-		Book result = bService.getBookById(1);
-		System.out.println(result);
+		// Book result = bService.getBookById(1);
+		// System.out.println(result);
 
 		// System.out.println(resultBook);
 
