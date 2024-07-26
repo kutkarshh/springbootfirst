@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="base::layout(~{::body})"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* Add this CSS style to fix the footer at the bottom */
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh; /* Set the body height to 100 viewport height */
+        display: flex;
+        flex-direction: column;
+      }
+      footer {
+        margin-top: auto; /* Push the footer to the bottom */
+        background-color: grey;
+        padding: 0px;
+        text-align: center;
+      }
+      .container {
+        margin: 0px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Contact</h1>
+
+      <h2>This is a sample Contact page</h2>
+    </div>
+
+    <!--
+    replace -> replaces the hostTag with fragmentTag with whole elements/body
+    include -> includes the hostTag with fragmentTag and only takes elements inside the fragmentTag
+    inserts -> inserts the fragmentTag inside the hostTag
+    -->
+    <!-- <footer id="hostTag" th:replace="footer::footer-template('this is title','this is subtitle')"></footer> -->
+    <!-- <footer
+      id="hostTag"
+      th:replace="footer::footer-template(${title},${subtitle})"
+    ></footer> -->
+    <!-- <footer id="hostTag" th:include="footer::footer-template"></footer> -->
+    <!-- <footer id="hostTag" th:insert="footer::footer-template"></footer> -->
+    <!-- Will add Footer using Fragment of thymeleaf -->
+  </body>
+</html>

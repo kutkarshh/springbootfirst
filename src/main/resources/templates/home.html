@@ -1,0 +1,46 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="base::layout(~{::body})"
+>
+  <body>
+    <div class="container">
+      <h1>Home</h1>
+      <section class="content">
+        <h2>This is a sample home page</h2>
+        <hr />
+
+        <!-- Elvis Operator Example -->
+        <h4 class="highlight">Using Elvis Operator in Thymeleaf</h4>
+        <h3>
+          Current User is
+          <span
+            th:style="${isActive} ? 'color:green; font-weight:bold' : 'color:red; font-weight:bold'"
+            th:text="${isActive} ? 'ACTIVE' : 'INACTIVE'"
+          ></span>
+        </h3>
+
+        <!-- If-Unless Example -->
+        <hr />
+        <h4 class="highlight">Using If-Unless in Thymeleaf</h4>
+        <h3>
+          You have
+          <span class="premium" th:if="${membership} == 'P'">Premium</span>
+          <span th:unless="${membership} == 'P'">Standard</span>
+          Membership
+        </h3>
+
+        <!-- Switch Example -->
+        <hr />
+        <h4 class="highlight">Using Switch in Thymeleaf</h4>
+        <div th:switch="${#lists.size(myList)}">
+          <h5 th:case="'0'">List contains no elements</h5>
+          <h5 th:case="'1'">List contains only one element</h5>
+          <h5 th:case="*">List contains more than two elements</h5>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

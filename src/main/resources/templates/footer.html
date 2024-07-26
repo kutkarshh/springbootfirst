@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Footer Template</title>
+  </head>
+  <body>
+    <!-- Your main content here -->
+    <!-- th:fragment="footer-template(title,subtitle)" here title and subtitle is passed by the host tag which takes
+    dynamic value from the Controller.-->
+    <footer id="fragmentTag" th:fragment="footer-template(title,subtitle)">
+      <div>
+        <!-- Fix typo: "contianer" to "container" -->
+        <h4 th:text="'Welcome '+${title}"></h4>
+        <h5 th:text="${subtitle}"></h5>
+        <hr />
+        <p>Learning Spring Boot to create an application</p>
+        <p>You can take reference and code from this project</p>
+      </div>
+    </footer>
+  </body>
+</html>
